@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="col-lg-offset-0 col-lg-12">
+
+    {% from '_formhelpers.html' import render_field %}
+
+    <form class="form-signin" method="post" action="{{ url_for('login') }}" role="form">
+
+        <h2 class="form-signin-heading">Ingreso</h2>
+        <hr/>
+        <hr/>
+        {{ form.hidden_tag() }}
+
+        {{ render_field(form.user, class="form-control") }}
+        {{ render_field(form.password, class="form-control") }}
+
+        <hr/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+
+    </form>
+</div>
+
+{% endblock %}
