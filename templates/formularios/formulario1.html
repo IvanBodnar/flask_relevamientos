@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Formulario 1{% endblock %}
+
+{% block content %}
+
+<div class="col-lg-offset-0 col-lg-12">
+
+    {% if error %}
+    <div class="error text-danger">{{ error }}</div>
+    {% endif %}
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flashes">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    {% from '_formhelpers.html' import render_field %}
+
+    <form class="form-signin" method="post" action="{{ url_for('formulario1') }}" role="form">
+        <hr/>
+        <hr/>
+        <hr/>
+        <h3>Formulario 1</h3>
+        <hr/>
+
+
+
+        {{ form.hidden_tag() }}
+
+        {{ render_field(form.vehiculo1, class='form-control') }}
+        {{ render_field(form.vehiculo2, class='form-control') }}
+        {{ render_field(form.causa, class='form-control') }}
+        {{ render_field(form.heridos, class='form-control') }}
+        {{ render_field(form.observaciones, class='form-control') }}
+        <hr/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Enviar</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

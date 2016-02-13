@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Dato Agregado{% endblock %}
+
+{% block content %}
+
+<div class="container">
+<div class="col-lg-offset-3 col-lg-12">
+    <h2 style="margin-left: 30px">Dato Agregado</h2>
+    <hr/>
+    <div style="display: inline">
+        <a href="{{ request.args.get('next') }}"><button class="btn btn-md btn-primary">Volver a Formulario</button></a>
+        <a href="{{ url_for('formularios') }}" ><button class="btn btn-md btn-primary">Ir a Formularios</button></a>
+    </div>
+</div>
+</div>
+{% endblock %}

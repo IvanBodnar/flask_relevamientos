@@ -6,3 +6,4 @@ app.config.from_pyfile('settings.py')
 db = SQLAlchemy(app)
 
 from users import views
+from formularios import views
