@@ -11,10 +11,14 @@ class Formulario1(db.Model):
     causa = db.Column(db.String(20))
     heridos = db.Column(db.Integer)
     observaciones = db.Column(db.String(200))
+    lat = db.Column(db.Float)
+    long = db.Column(db.Float)
 
-    def __init__(self, vehiculo1, vehiculo2, causa, heridos, observaciones):
+    def __init__(self, vehiculo1, vehiculo2, causa, heridos, observaciones, lat=None, long=None):
         self.vehiculo1 = vehiculo1
         self.vehiculo2 = vehiculo2
         self.causa = causa
         self.heridos = heridos
         self.observaciones = observaciones
+        self.lat = lat
+        self.long = long

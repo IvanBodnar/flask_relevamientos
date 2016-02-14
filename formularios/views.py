@@ -23,14 +23,16 @@ def formulario1():
             vehiculo2=form.vehiculo2.data,
             causa=form.causa.data,
             heridos=form.heridos.data,
-            observaciones=form.observaciones.data
+            observaciones=form.observaciones.data,
+            lat=form.lat.data,
+            long=form.long.data
         )
         try:
             db.session.add(siniestro)
             db.session.commit()
             return redirect(url_for('agregado', next=request.url))
         except:
-            error = 'Dato no agregado'
+            error = 'Dato no agregado: %s' % form.lat.data
 
     return render_template('formularios/formulario1.html', form=form, error=error)
 

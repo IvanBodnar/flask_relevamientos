@@ -20,6 +20,8 @@
     {% endif %}
     {% endwith %}
 
+    <a href="{{ url_for('formularios') }}"><h4>Volver a Formularios</h4></a>
+
     {% from '_formhelpers.html' import render_field %}
 
     <form class="form-signin" method="post" action="{{ url_for('formulario1') }}" role="form">
@@ -38,10 +40,15 @@
         {{ render_field(form.causa, class='form-control') }}
         {{ render_field(form.heridos, class='form-control') }}
         {{ render_field(form.observaciones, class='form-control') }}
+        {{ render_field(form.lat, id='Lat', class='form-control') }}
+        {{ render_field(form.long, id='Long', class='form-control') }}
         <hr/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Enviar</button>
-
     </form>
+    <hr/>
+    <button class="btn btn-lg btn-success btn-block form-signin" onclick="getLocation()">Geo</button>
+    <hr/>
+    <a href="{{ url_for('formulario1') }}"><button class="btn btn-lg btn-danger btn-block form-signin">Reset</button></a>
 
 </div>
 

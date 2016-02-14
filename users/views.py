@@ -1,7 +1,8 @@
 from relevamientos.app import app
-from flask import render_template, redirect, request, url_for, session
+from flask import render_template, redirect, request, url_for, session, flash
 from users.forms import LoginForm
 from users.models import Users
+from decorators import login_required
 
 
 @app.route('/')
@@ -26,15 +27,32 @@ def login():
             password=form.password.data
         ).first()
         if user:
+            # Agregar usuario e is_boss a la sesion
             session['username'] = form.username.data
+            session['is_boss'] = user.is_boss
+
+            # Probar
+            flash('Usuario %s logueado' % (user.fullname))
+
             if 'next' in session:
                 next = session.get('next')
                 session.pop('next')
                 return redirect(next)
             else:
-                return redirect(url_for('formularios')) # TODO hacer funcion y html para formularios
+                return redirect(url_for('formularios'))
+        else:
+            error = 'Usuario o contraseña incorrectos'
 
     return render_template('users/login.html', form=form, error=error)
+
+
+@app.route('/logout')
+@login_required
+def logout():
+    session.pop('username')
+    session.pop('is_boss')
+    return redirect(url_for('index'))
+
 
 
 

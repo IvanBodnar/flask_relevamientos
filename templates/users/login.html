@@ -6,6 +6,10 @@
 
 <div class="col-lg-offset-0 col-lg-12">
 
+    {% if error %}
+    <div class="error text-danger">{{ error }}</div>
+    {% endif %}
+
     {% from '_formhelpers.html' import render_field %}
 
     <form class="form-signin" method="post" action="{{ url_for('login') }}" role="form">

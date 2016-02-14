@@ -4,3 +4,4 @@ flask-script
 psycopg2
 flask_wtf
 gunicorn
+flask-migrate
