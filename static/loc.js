@@ -1,0 +1,4 @@
+
+function GetLocation() {
+    alert('hola');
+}
