@@ -11,4 +11,5 @@ function getLocation() {
 function position(position) {
     document.getElementById('Lat').value = position.coords.latitude;
     document.getElementById('Long').value = position.coords.longitude;
+    document.getElementById('Accu').value = position.coords.accuracy;
 }
