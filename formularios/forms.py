@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import validators, HiddenField, SelectField, TextAreaField, StringField
+from wtforms import validators, SelectField, TextAreaField, StringField
 from formularios.choices import *
 
 # Choices come from formularios.choices.py
@@ -11,3 +11,4 @@ class Formulario1Form(Form):
     observaciones = TextAreaField('Observaciones')
     lat = StringField('Lat', default='0.0')
     long = StringField('Long', default='0.0')
+    accuracy = StringField('Precision', default='0.0')
