@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<table class="table table-striped table-bordered table-sm table-condensed">
+        <thead style="background-color: #8FBC8F">
+            <tr>
+                <th>Fecha</th>
+                <th>V1</th>
+                <th>V2</th>
+                <th>Causa</th>
+                <th>Heridos</th>
+                <th>Lat</th>
+                <th>Long</th>
+            </tr>
+        </thead>
+    {% for item in query %}
+        <tr>
+            <td>{{ item.fecha }}</td>
+            <td>{{ item.vehiculo1 }}</td>
+            <td>{{ item.vehiculo2 }}</td>
+            <td>{{ item.causa }}</td>
+            <td>{{ item.heridos }}</td>
+            <td>{{ item.lat }}</td>
+            <td>{{ item.long }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

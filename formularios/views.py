@@ -41,3 +41,9 @@ def formulario1():
 @login_required
 def agregado():
     return render_template('formularios/agregado.html')
+
+
+@app.route('/tabla')
+def tabla():
+    query = db.session.query(Formulario1).all()
+    return render_template('formularios/tabla.html', query=query)
