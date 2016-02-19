@@ -44,6 +44,7 @@ def agregado():
 
 
 @app.route('/tabla')
+@login_required
 def tabla():
     query = db.session.query(Formulario1).all()
     return render_template('formularios/tabla.html', query=query)
