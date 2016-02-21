@@ -48,3 +48,9 @@ def agregado():
 def tabla():
     query = db.session.query(Formulario1).all()
     return render_template('formularios/tabla.html', query=query)
+
+
+@app.route('/mapa')
+@login_required
+def mapa():
+    return render_template('maps/mapa.html')
