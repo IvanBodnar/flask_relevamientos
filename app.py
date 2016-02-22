@@ -9,5 +9,6 @@ db = SQLAlchemy(app)
 # Migrations
 migrate = Migrate(app, db)
 
+from maps import views
 from users import views
 from formularios import views
