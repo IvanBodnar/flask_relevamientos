@@ -16,9 +16,16 @@ def mapa():
             long_lat = (float(item.long), float(item.lat))
         except:
             long_lat = (0.0, 0.0)
-        causa = item.causa
+        vehiculo1 = item.vehiculo1
+        vehiculo2 = item.vehiculo2
+        causa = item.causa.capitalize()
+        heridos = item.heridos
         point = Point(long_lat)
-        feature = Feature(geometry=point, properties={'causa': causa})
+
+        feature = Feature(geometry=point,
+                          properties={'causa': causa, 'vehiculo1':vehiculo1,
+                                     'vehiculo2': vehiculo2, 'heridos': heridos})
+
         point_list.append(feature)
     geo_json = FeatureCollection(point_list)
 

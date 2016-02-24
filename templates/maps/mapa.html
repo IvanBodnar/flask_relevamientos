@@ -1,14 +1,28 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Mapa</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css">
+    <style>
+    body {
+    padding: 0;
+    margin: 0;
+    }
+    html, body, #map {
+    height: 100%;
+    }
+    </style>
+</head>
+<body>
 
-{% block title %}Mapa{% endblock %}
+    <div id="map"></div>
+    <input type="hidden" id="geo" name="variable" value="{{ geo_json }}">
 
-{% block content %}
-
-
-
-<div id="map" style="width: 700px; height: 600px"></div>
-<input type="hidden" id="geo" name="variable" value="{{ geo_json }}">
-
-
-
-{% endblock %}
+    <!-- Leaflet -->
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='map.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='marker.js') }}"></script>
+</body>
+</html>
