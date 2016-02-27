@@ -10,6 +10,7 @@ from geojson import Feature, Point, FeatureCollection
 @login_required
 def mapa():
     query = Formulario1.query.all()
+
     point_list = []
     for item in query:
         try:
