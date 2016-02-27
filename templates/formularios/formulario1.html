@@ -35,6 +35,9 @@
 
         {{ form.hidden_tag() }}
 
+
+        {{ render_field(form.calle1, id='calle1', class='form-control') }}
+
         {{ render_field(form.vehiculo1, class='form-control') }}
         {{ render_field(form.vehiculo2, class='form-control') }}
         {{ render_field(form.causa, class='form-control') }}

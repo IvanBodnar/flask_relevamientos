@@ -4,6 +4,7 @@ from formularios.choices import *
 
 # Choices come from formularios.choices.py
 class Formulario1Form(Form):
+    calle1 = StringField('Calle1')
     vehiculo1 = SelectField('Vehículo 1', choices=VEHICULOS)
     vehiculo2 = SelectField('Vehículo 2', choices=VEHICULOS)
     causa = SelectField('Causa', [validators.DataRequired(message='Campo requerido')], choices=CAUSA)
