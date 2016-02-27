@@ -3,6 +3,8 @@ from flask import render_template, flash, redirect, url_for, request
 from formularios.forms import Formulario1Form
 from formularios.models import Formulario1
 from relevamientos.decorators import login_required
+from maps.models import Calles
+import json
 
 
 @app.route('/formularios')
@@ -16,6 +18,8 @@ def formularios():
 def formulario1():
     form = Formulario1Form()
     error = None
+    query_calles = Calles.query.order_by(Calles.nombre).all()
+    CALLES = [x.nombre for x in query_calles]
 
     if form.validate_on_submit():
         siniestro = Formulario1(
@@ -34,7 +38,7 @@ def formulario1():
         except:
             error = 'Dato no agregado: %s' % form.lat.data
 
-    return render_template('formularios/formulario1.html', form=form, error=error)
+    return render_template('formularios/formulario1.html', form=form, error=error, calles=json.dumps(CALLES))
 
 
 @app.route('/agregado')

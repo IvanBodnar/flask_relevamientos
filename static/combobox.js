@@ -1,13 +1,15 @@
 
+
+var list = document.getElementById('calles').value;
+
+
+console.log(JSON.parse(list))
+
 $(function() {
-    var tags = [
-        "uno",
-        "dos",
-        "tres",
-        "tristes",
-        "tigres"
-    ];
+
+
+
     $( "#calle1" ).autocomplete({
-        source: tags
+        source: JSON.parse(list)
     });
 });

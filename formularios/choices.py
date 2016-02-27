@@ -11,5 +11,9 @@ CAUSA = [('lesiones', 'Lesiones'),
 
 HERIDOS = [(x, str(x)) for x in range(1, 11)]
 
-#CALLES = [x for x in Calles.query.all()]
+query_calles = Calles.query.order_by(Calles.nombre).all()
+
+CALLES = [x.nombre for x in query_calles]
+
+#print(CALLES)
 
