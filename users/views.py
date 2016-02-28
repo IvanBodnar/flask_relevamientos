@@ -34,12 +34,14 @@ def login():
             # Probar
             flash('Usuario %s logueado' % (user.fullname))
 
+            '''
             if 'next' in session:
                 next = session.get('next')
                 session.pop('next')
                 return redirect(next)
             else:
-                return redirect(url_for('formularios'))
+            '''
+            return redirect(url_for('formularios'))
         else:
             error = 'Usuario o contraseña incorrectos'
 

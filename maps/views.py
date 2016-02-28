@@ -1,6 +1,6 @@
 from relevamientos.app import app
 from flask import render_template
-from relevamientos.decorators import login_required
+from relevamientos.decorators import login_required, directivo_required
 from formularios.models import Formulario1
 from geojson import Feature, Point, FeatureCollection
 
@@ -8,6 +8,7 @@ from geojson import Feature, Point, FeatureCollection
 
 @app.route('/mapa')
 @login_required
+@directivo_required
 def mapa():
     query = Formulario1.query.all()
 
