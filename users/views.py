@@ -22,17 +22,19 @@ def login():
 
     # Check if user and pass are correct
     if form.validate_on_submit():
+        username = form.username.data.lower()
+        password = form.password.data.lower()
         user = Users.query.filter_by(
-            username=form.username.data,
-            password=form.password.data
+            username=username,
+            password=password
         ).first()
         if user:
             # Agregar usuario e is_boss a la sesion
-            session['username'] = form.username.data
+            session['username'] = username
             session['level'] = user.level
 
             # Probar
-            flash('Usuario %s logueado' % (user.fullname))
+            flash('Usuario %s logueado' % (user.fullname.title()))
 
             '''
             if 'next' in session:
