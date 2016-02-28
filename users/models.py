@@ -7,13 +7,13 @@ class Users(db.Model):
     username = db.Column(db.String(80), unique=True)
     password = db.Column(db.String(80))
     fullname = db.Column(db.String(80))
-    is_boss = db.Column(db.Boolean)
+    level = db.Column(db.Integer)
 
-    def __init__(self, username, password, fullname, is_boss=False):
+    def __init__(self, username, password, fullname, level=2):
         self.username = username
         self.password = password
         self.fullname = fullname
-        self.is_boss = is_boss
+        self.level = level
 
     def __repr__(self):
         return '<User> %s' % self.username

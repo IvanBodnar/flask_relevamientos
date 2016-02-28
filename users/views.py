@@ -29,7 +29,7 @@ def login():
         if user:
             # Agregar usuario e is_boss a la sesion
             session['username'] = form.username.data
-            session['is_boss'] = user.is_boss
+            session['level'] = user.level
 
             # Probar
             flash('Usuario %s logueado' % (user.fullname))
@@ -50,7 +50,7 @@ def login():
 @login_required
 def logout():
     session.pop('username')
-    session.pop('is_boss')
+    session.pop('level')
     return redirect(url_for('index'))
 
 
