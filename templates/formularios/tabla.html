@@ -17,8 +17,10 @@
                 <th>V2</th>
                 <th>Causa</th>
                 <th>Heridos</th>
-                <th>Lat</th>
-                <th>Long</th>
+                <th>Óbitos</th>
+                <th>Calle 1</th>
+                <th>Calle 2</th>
+                <th>Altura</th>
             </tr>
         </thead>
     {% for item in query %}
@@ -27,9 +29,11 @@
             <td>{{ item.vehiculo1 }}</td>
             <td>{{ item.vehiculo2 }}</td>
             <td>{{ item.causa }}</td>
-            <td>{{ item.heridos }}</td>
-            <td>{{ item.lat }}</td>
-            <td>{{ item.long }}</td>
+            <td>{{ item.heridos if item.heridos != None }}</td>
+            <td>{{ item.obitos if item.obitos != None}}</td>
+            <td>{{ item.calle1 if item.calle1 != None }}</td>
+            <td>{{ item.calle2 if item.calle2 != None }}</td>
+            <td>{{ item.altura if item.altura != None }}</td>
         </tr>
     {% endfor %}
 </table>
