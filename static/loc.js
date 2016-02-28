@@ -9,7 +9,7 @@ function getLocation() {
 }
 
 function position(position) {
-    document.getElementById('Lat').value = position.coords.latitude;
-    document.getElementById('Long').value = position.coords.longitude;
-    document.getElementById('Accu').value = position.coords.accuracy;
+    document.getElementById('Lat').value = position.coords.latitude.toFixed(8);
+    document.getElementById('Long').value = position.coords.longitude.toFixed(8);
+    document.getElementById('Precision').value = position.coords.accuracy.toFixed(2);
 }

@@ -23,20 +23,25 @@ def formulario1():
 
     if form.validate_on_submit():
         siniestro = Formulario1(
-            vehiculo1=form.vehiculo1.data,
-            vehiculo2=form.vehiculo2.data,
-            causa=form.causa.data,
+            vehiculo1=form.vehiculo1.data.lower(),
+            vehiculo2=form.vehiculo2.data.lower(),
+            causa=form.causa.data.lower(),
             heridos=form.heridos.data,
-            observaciones=form.observaciones.data,
+            obitos=form.obitos.data,
+            observaciones=form.observaciones.data.lower(),
+            calle1=form.calle1.data.lower(),
+            calle2=form.calle2.data.lower(),
+            altura=form.altura.data,
             lat=form.lat.data,
-            long=form.long.data
+            long=form.long.data,
+            precision=form.precision.data
         )
         try:
             db.session.add(siniestro)
             db.session.commit()
             return redirect(url_for('agregado', next=request.url))
         except:
-            error = 'Dato no agregado: %s' % form.lat.data
+            error = 'Dato no agregado'
 
     return render_template('formularios/formulario1.html', form=form, error=error, calles=json.dumps(CALLES))
 

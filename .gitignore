@@ -28,6 +28,7 @@ venv/
 .gitignore
 /dump
 /wsgi.py
+/migrations
 .idea/
 # PyInstaller
 #  Usually these files are written by a python script from a template
