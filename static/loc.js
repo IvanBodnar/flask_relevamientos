@@ -1,19 +1,23 @@
 var x = document.getElementById("demo");
 
-var dummy = function(){
+var dummy = function(position){
 };
 
-function watchLocation() {
+function startGps() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(dummy);
+        navigator.geolocation.watchPosition(dummy);
     } else {
         alert("Geolocalización no soportada en este navegador");
     }
 }
 
+function stopGps() {
+    navigator.geolocation.clearWatch(startGps);
+};
+
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position, dummy, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
+        navigator.geolocation.getCurrentPosition(position);
     } else {
         alert("Geolocalización no soportada en este navegador");
     }
@@ -25,6 +29,6 @@ function position(position) {
     document.getElementById('Precision').value = position.coords.accuracy.toFixed(2);
 }
 
-window.onload = function() {
-    watchLocation();
-};
+$( document ).ready(function() {
+    startGps();
+});
