@@ -2,7 +2,7 @@ from relevamientos.app import app
 from flask import render_template, redirect, request, url_for, session, flash
 from users.forms import LoginForm
 from users.models import Users
-from decorators import login_required
+from decorators import login_required, directivo_required, admin_required
 
 
 @app.route('/')
@@ -29,11 +29,11 @@ def login():
             password=password
         ).first()
         if user:
-            # Agregar usuario e is_boss a la sesion
+            # Add user end level to session
             session['username'] = username
             session['level'] = user.level
 
-            # Probar
+            # Test
             flash('Usuario %s logueado' % (user.fullname.title()))
 
             '''
@@ -43,11 +43,32 @@ def login():
                 return redirect(next)
             else:
             '''
-            return redirect(url_for('formularios'))
+            # Check access level
+            if session['level'] == 20:
+                return redirect(url_for('formularios'))
+            elif session['level'] == 10:
+                return redirect(url_for('directivos'))
+            elif session['level'] == 0:
+                return redirect(url_for('admin'))
+
         else:
             error = 'Usuario o contraseña incorrectos'
 
     return render_template('users/login.html', form=form, error=error)
+
+
+@app.route('/admin')
+@login_required
+@admin_required
+def admin():
+    return render_template('users/admin.html')
+
+
+@app.route('/directivos')
+@login_required
+@directivo_required
+def directivos():
+    return render_template('users/directivos.html')
 
 
 @app.route('/logout')

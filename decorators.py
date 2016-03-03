@@ -14,7 +14,7 @@ def login_required(f):
 def directivo_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if session.get('level') != 10:
+        if session.get('level') not in (0, 10):
             return redirect(url_for('formularios', next=request.url))
         return f(*args, **kwargs)
     return decorated_function

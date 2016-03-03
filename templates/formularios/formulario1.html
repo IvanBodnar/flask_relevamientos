@@ -4,6 +4,7 @@
 
 {% block content %}
 
+
 <div class="col-lg-offset-0 col-lg-12">
 
     {% if error %}
@@ -20,7 +21,11 @@
     {% endif %}
     {% endwith %}
 
+    {% if session['level'] == 20 %}
     <a href="{{ url_for('formularios') }}"><h4>Volver a Opciones</h4></a>
+    {% else %}
+    <a href="{{ url_for('admin') }}"><h4>Volver a Opciones</h4></a>
+    {% endif %}
 
     {% from '_formhelpers.html' import render_field %}
 
@@ -55,8 +60,6 @@
     <button class="btn btn-lg btn-success btn-block form-signin" onclick="getLocation()">Geo</button>
     <hr/>
     <a href="{{ url_for('formulario1') }}"><button class="btn btn-lg btn-danger btn-block form-signin">Reset</button></a>
-
-
 
 </div>
 

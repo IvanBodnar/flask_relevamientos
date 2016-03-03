@@ -2,7 +2,7 @@ from relevamientos.app import app, db
 from flask import render_template, flash, redirect, url_for, request
 from formularios.forms import Formulario1Form
 from formularios.models import Formulario1
-from relevamientos.decorators import login_required, directivo_required
+from relevamientos.decorators import login_required, directivo_required, admin_required
 from maps.models import Calles
 import json
 
@@ -58,4 +58,12 @@ def agregado():
 def tabla():
     query = db.session.query(Formulario1).all()
     return render_template('formularios/tabla.html', query=query)
+
+
+@app.route('/tabla_admin')
+@login_required
+@admin_required
+def tabla_admin():
+    query = db.session.query(Formulario1).all()
+    return render_template('formularios/tabla_admin.html', query=query)
 

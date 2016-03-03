@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Formularios{% endblock %}
+{% block title %}Admin{% endblock %}
 
 {% block content %}
 
@@ -19,10 +19,13 @@
 
         <div class="col-xs-offset-3 col-xs-12">
             <div class="btn-group-vertical">
-                <h2 style="margin-left: 0px">Elija Opción</h2>
-                <hr/>
+                <h2 style="margin-left: 0px">Admin</h2>
+                <br>
                 <a href="{{ url_for('formulario1') }}" class="btn btn-md btn-primary">Formulario 1</a>
                 <br>
+                <a href="{{ url_for('tabla_admin') }}" class="btn btn-md btn-primary">Tabla de Datos</a>
+                <br>
+                <a href="{{ url_for('mapa') }}" class="btn btn-md btn-primary">Ver Mapa</a>
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@ class Users(db.Model):
     fullname = db.Column(db.String(80))
     level = db.Column(db.Integer)
 
-    def __init__(self, username, password, fullname, level=2):
+    def __init__(self, username, password, fullname, level=20):
         self.username = username
         self.password = password
         self.fullname = fullname

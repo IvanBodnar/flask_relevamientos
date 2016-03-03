@@ -13,6 +13,7 @@ function startGps() {
 
 function stopGps() {
     navigator.geolocation.clearWatch(startGps);
+    console.log('stop');
 };
 
 function getLocation() {
