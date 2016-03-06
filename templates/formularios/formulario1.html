@@ -26,6 +26,9 @@
     {% else %}
     <a href="{{ url_for('admin') }}"><h4>Volver a Opciones</h4></a>
     {% endif %}
+    <br>
+    <br>
+    <button id="gps-btn" class="btn btn-lg btn-success center-block">Encender GPS</button>
 
     {% from '_formhelpers.html' import render_field %}
 
@@ -36,8 +39,10 @@
         <h3>Formulario 1</h3>
         <hr/>
 
-
+        <!-- Calles list hidden variable -->
         <input type="hidden" id="calles" name="variable" value="{{ calles }}">
+
+
 
         {{ form.hidden_tag() }}
 

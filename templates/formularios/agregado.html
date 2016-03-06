@@ -5,10 +5,9 @@
 {% block content %}
 
 <div class="container">
-<div class="col-lg-offset-3 col-lg-12">
-    <h2 style="margin-left: 30px">Dato Agregado</h2>
-    <hr/>
-    <div class="col-lg-offset-1 btn-group-vertical">
+    <div class="col-xs-offset-2 col-lg-offset-4 btn-group-vertical">
+        <h2 style="margin-left: 0px">Dato Agregado</h2>
+        <hr/>
         <a href="{{ request.args.get('next') }}" class="btn btn-md btn-primary">Volver a Formulario</a>
         <br>
         <a href="{{ url_for('formularios') }}" class="btn btn-md btn-primary">Ir a Formularios</a>
@@ -16,5 +15,5 @@
         <a href="{{ url_for('mapa') }}" class="btn btn-md btn-primary">Ver en Mapa</a>
     </div>
 </div>
-</div>
+
 {% endblock %}

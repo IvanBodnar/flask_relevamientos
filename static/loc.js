@@ -30,6 +30,6 @@ function position(position) {
     document.getElementById('Precision').value = position.coords.accuracy.toFixed(2);
 }
 
-$( document ).ready(function() {
+$( '#gps-btn' ).click(function() {
     startGps();
 });
