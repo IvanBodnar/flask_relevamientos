@@ -28,12 +28,13 @@
     {% endif %}
     <br>
     <br>
-    <button id="gps-btn" class="btn btn-lg btn-success center-block">Encender GPS</button>
+    <button id="gps-on" type="button" class="btn btn-lg btn-success center-block">Encender GPS</button>
+    <br>
+    <button id="gps-off" class="btn btn-lg btn-danger center-block">Apagar GPS</button>
 
     {% from '_formhelpers.html' import render_field %}
 
     <form class="form-signin" method="post" action="{{ url_for('formulario1') }}" role="form">
-        <hr/>
         <hr/>
         <hr/>
         <h3>Formulario 1</h3>
