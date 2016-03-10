@@ -5,6 +5,7 @@ from formularios.models import Formulario1
 from relevamientos.decorators import login_required, directivo_required, admin_required
 from maps.models import Calles
 import json
+import geocoder
 
 
 @app.route('/formularios')
@@ -29,9 +30,9 @@ def formulario1():
             heridos=form.heridos.data,
             obitos=form.obitos.data,
             observaciones=form.observaciones.data.lower(),
-            calle1=form.calle1.data.lower(),
-            calle2=form.calle2.data.lower(),
-            altura=form.altura.data,
+            calle1=form.calle1.data.strip().lower(),
+            calle2=form.calle2.data.strip().lower(),
+            altura=form.altura.data.strip(),
             lat=form.lat.data,
             long=form.long.data,
             precision=form.precision.data
@@ -66,4 +67,17 @@ def tabla():
 def tabla_admin():
     query = db.session.query(Formulario1).all()
     return render_template('formularios/tabla_admin.html', query=query)
+
+
+@app.route('/geo_gm', methods=('GET', 'POST'))
+def geo_gm():
+    calle1 = request.form['calle1']
+    calle2 = request.form['calle2']
+    altura = request.form['altura']
+
+    if calle1 and calle2:
+        result = geocoder.google('{} y {}, CABA, AR'.format(calle1, calle2))
+    elif calle1 and altura:
+        result = geocoder.google('{} {}, CABA, AR'.format(calle1, altura))
+    return json.dumps(result.latlng)
 
