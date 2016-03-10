@@ -76,8 +76,8 @@ def geo_gm():
     altura = request.form['altura']
 
     if calle1 and calle2:
-        result = geocoder.google('{} y {}, CABA, AR'.format(calle1, calle2))
+        result = geocoder.google('{}+y+{}+CABA+AR'.format(calle1, calle2))
     elif calle1 and altura:
-        result = geocoder.google('{} {}, CABA, AR'.format(calle1, altura))
+        result = geocoder.google('{}+{}+CABA+AR'.format(calle1, altura))
     return json.dumps(result.latlng)
 
