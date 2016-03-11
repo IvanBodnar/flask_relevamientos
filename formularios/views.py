@@ -7,7 +7,7 @@ from maps.models import Calles
 import json
 import geocoder
 
-GOOGLE_KEY = 'AIzaSyACXLi060C-yJOuxfYRoVJRr48_lsT3Wp0'
+GOOGLE_KEY = 'AIzaSyBKUvzwTGE65RwwhrXa67pFfF3PkvynMSY'
 
 @app.route('/formularios')
 @login_required
