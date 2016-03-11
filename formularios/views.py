@@ -7,6 +7,7 @@ from maps.models import Calles
 import json
 import geocoder
 
+GOOGLE_KEY = 'AIzaSyACXLi060C-yJOuxfYRoVJRr48_lsT3Wp0'
 
 @app.route('/formularios')
 @login_required
@@ -76,8 +77,8 @@ def geo_gm():
     altura = request.form['altura']
 
     if calle1 and calle2:
-        result = geocoder.google('{}+y+{}+CABA+AR'.format(calle1, calle2))
+        result = geocoder.google('{} y {}, CABA, AR'.format(calle1, calle2), key=GOOGLE_KEY)
     elif calle1 and altura:
-        result = geocoder.google('{}+{}+CABA+AR'.format(calle1, altura))
+        result = geocoder.google('{} {}, CABA, AR'.format(calle1, altura), key=GOOGLE_KEY)
     return json.dumps(result.latlng)
 
