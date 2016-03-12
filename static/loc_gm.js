@@ -1,11 +1,9 @@
 
 $(function() {
     $('#geo_google').click(function() {
-        var lat = $('#lat').val();
-        var long = $('#long').val();
-        var altura = $('#altura').val();
+
         $.ajax({
-            url: '/geo_gm',
+            url: 'geo_gm',
             data: $('form').serialize(),
             type: 'POST',
             success: function(response) {
