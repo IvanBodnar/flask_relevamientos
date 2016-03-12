@@ -10,8 +10,8 @@ $(function() {
             type: 'POST',
             success: function(response) {
                 response = JSON.parse(response)
-                $('#Lat').val(response[0]);
-                $('#Long').val(response[1]);
+                $('#Lat').val(response['lat']);
+                $('#Long').val(response['lng']);
                 //console.log(response);
             },
             error: function(error) {

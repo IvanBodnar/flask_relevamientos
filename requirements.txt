@@ -6,4 +6,3 @@ flask_wtf
 gunicorn
 flask-migrate
 geojson
-geocoder

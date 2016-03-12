@@ -5,7 +5,7 @@ from formularios.models import Formulario1
 from relevamientos.decorators import login_required, directivo_required, admin_required
 from maps.models import Calles
 import json
-import geocoder
+import requests
 
 GOOGLE_KEY = 'AIzaSyBKUvzwTGE65RwwhrXa67pFfF3PkvynMSY'
 
@@ -77,8 +77,12 @@ def geo_gm():
     altura = request.form['altura']
 
     if calle1 and calle2:
-        result = geocoder.google('{} y {}, CABA, AR'.format(calle1, calle2), key=GOOGLE_KEY)
+        address = '{}+y+{},+CABA,+AR'.format(calle1, calle2)
     elif calle1 and altura:
-        result = geocoder.google('{} {}, CABA, AR'.format(calle1, altura), key=GOOGLE_KEY)
-    return json.dumps(result.latlng)
+        address = '{}+{},+CABA,+AR'.format(calle1, altura)
+
+    url = 'https://maps.googleapis.com/maps/api/geocode/json?address={}&key={}'.format(address, GOOGLE_KEY)
+    response = requests.get(url)
+    result = response.json()
+    return json.dumps(result['results'][0]['geometry']['location'])
 
