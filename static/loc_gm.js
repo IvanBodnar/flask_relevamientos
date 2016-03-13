@@ -1,9 +1,12 @@
 
+
+
+
 $(function() {
     $('#geo_google').click(function() {
 
         $.ajax({
-            url: 'geo_gm',
+            url: $('#geo-gm').val(),
             data: $('form').serialize(),
             type: 'POST',
             success: function(response) {
