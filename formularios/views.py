@@ -33,7 +33,7 @@ def formulario1():
             observaciones=form.observaciones.data.lower(),
             calle1=form.calle1.data.strip().lower(),
             calle2=form.calle2.data.strip().lower(),
-            altura=form.altura.data.strip(),
+            altura=form.altura.data,
             lat=form.lat.data,
             long=form.long.data,
             precision=form.precision.data
