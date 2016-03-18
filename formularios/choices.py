@@ -1,7 +1,8 @@
 from relevamientos.app import db
 from maps.models import Calles
 
-VEHICULOS = [('ap', 'AP'),
+VEHICULOS = [('', ''),
+             ('ap', 'AP'),
              ('tp', 'TP'),
              ('moto', 'Moto'),
              ('bicicleta', 'Bicicleta'),

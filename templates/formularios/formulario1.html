@@ -54,13 +54,13 @@
         {{ render_field(form.causa, class='form-control') }}
         {{ render_field(form.heridos, class='form-control') }}
         {{ render_field(form.obitos, class='form-control') }}
-        {{ render_field(form.observaciones, class='form-control') }}
         {{ render_field(form.calle1, id='calle1', class='form-control') }}
         {{ render_field(form.calle2, id='calle2', class='form-control') }}
         {{ render_field(form.altura, id='altura', class='form-control') }}
         {{ render_field(form.lat, id='Lat', class='form-control', readonly='true') }}
         {{ render_field(form.long, id='Long', class='form-control', readonly='true') }}
         {{ render_field(form.precision, id='Precision', class='form-control', readonly='true') }}
+        {{ render_field(form.observaciones, class='form-control') }}
         <hr/>
         <button onclick="stopGps()" class="btn btn-lg btn-primary btn-block" type="submit">Enviar</button>
     </form>

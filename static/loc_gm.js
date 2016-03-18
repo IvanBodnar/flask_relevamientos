@@ -5,6 +5,7 @@
 $(function() {
     $('#geo_google').click(function() {
 
+        $('#Precision').val('0.0');
         $.ajax({
             url: $('#geo-gm').val(),
             data: $('form').serialize(),
