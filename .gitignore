@@ -27,6 +27,7 @@ var/
 venv/
 .gitignore
 /dump
+/migrations
 /wsgi.py
 .idea/
 # PyInstaller

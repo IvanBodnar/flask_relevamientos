@@ -6,3 +6,4 @@ flask_wtf
 gunicorn
 flask-migrate
 geojson
+requests
