@@ -5,9 +5,12 @@ import datetime
 class Formulario1(db.Model):
     __tablename__ = 'formulario1'
     id = db.Column(db.Integer, primary_key=True)
-    fecha = db.Column(db.Date, default=datetime.datetime.now())
+    fecha = db.Column(db.Date)
+    hora_dato = db.Column(db.Time)
     vehiculo1 = db.Column(db.String(20))
     vehiculo2 = db.Column(db.String(20))
+    vehiculo3 = db.Column(db.String(20))
+    vehiculo4 = db.Column(db.String(20))
     causa = db.Column(db.String(20))
     heridos = db.Column(db.Integer)
     obitos = db.Column(db.Integer)
@@ -19,10 +22,14 @@ class Formulario1(db.Model):
     long = db.Column(db.Float)
     precision = db.Column(db.Float)
 
-    def __init__(self, vehiculo1, vehiculo2, causa, heridos, obitos, observaciones,
+    def __init__(self, vehiculo1, vehiculo2, vehiculo3, vehiculo4, causa, heridos, obitos, observaciones,
                  calle1, calle2, altura, lat=None, long=None, precision=None):
+        self.fecha = datetime.datetime.now()
+        self.hora_dato = datetime.datetime.now().strftime('%H:%M')
         self.vehiculo1 = vehiculo1
         self.vehiculo2 = vehiculo2
+        self.vehiculo3 = vehiculo3
+        self.vehiculo4 = vehiculo4
         self.causa = causa
         self.heridos = heridos
         self.obitos = obitos
@@ -33,3 +40,5 @@ class Formulario1(db.Model):
         self.lat = lat
         self.long = long
         self.precision=precision
+
+

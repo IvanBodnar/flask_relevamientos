@@ -27,6 +27,8 @@ def formulario1():
         siniestro = Formulario1(
             vehiculo1=form.vehiculo1.data.lower(),
             vehiculo2=form.vehiculo2.data.lower(),
+            vehiculo3=form.vehiculo3.data.lower(),
+            vehiculo4=form.vehiculo4.data.lower(),
             causa=form.causa.data.lower(),
             heridos=form.heridos.data,
             obitos=form.obitos.data,

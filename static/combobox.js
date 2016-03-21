@@ -1,9 +1,9 @@
 
 
-var list = document.getElementById('calles').value;
+var list = $('#calles').val();
 
 
-console.log(JSON.parse(list))
+//console.log(JSON.parse(list))
 
 $(function() {
     $( "#calle1" ).autocomplete({
@@ -18,3 +18,7 @@ $(function() {
         minLength: 3
     });
 });
+
+
+
+

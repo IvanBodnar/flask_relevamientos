@@ -11,6 +11,10 @@
     <div class="error text-danger">{{ error }}</div>
     {% endif %}
 
+    {% if form.errors %}
+    {{ form.errors }}
+    {% endif %}
+
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul class="flashes">
@@ -51,6 +55,8 @@
 
         {{ render_field(form.vehiculo1, class='form-control') }}
         {{ render_field(form.vehiculo2, class='form-control') }}
+        {{ render_field(form.vehiculo3, class='form-control') }}
+        {{ render_field(form.vehiculo4, class='form-control') }}
         {{ render_field(form.causa, class='form-control') }}
         {{ render_field(form.heridos, class='form-control') }}
         {{ render_field(form.obitos, class='form-control') }}

@@ -20,6 +20,8 @@ class Formulario1Form(Form):
 
     vehiculo1 = SelectField('Vehículo 1', choices=VEHICULOS)
     vehiculo2 = SelectField('Vehículo 2', choices=VEHICULOS)
+    vehiculo3 = SelectField('Vehículo 3', choices=VEHICULOS)
+    vehiculo4 = SelectField('Vehículo 4', choices=VEHICULOS)
     causa = SelectField('Causa', [validators.DataRequired(message='Campo Requerido')], choices=CAUSA)
     heridos = SelectField('Cantidad de Heridos', choices=HERIDOS, coerce=int)
     obitos = SelectField('Cantidad de Obitos', choices=OBITOS, coerce=int)

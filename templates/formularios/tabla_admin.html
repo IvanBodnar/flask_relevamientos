@@ -14,8 +14,11 @@
             <tr>
                 <th>ID</th>
                 <th>Fecha</th>
+                <th>Hora Dato</th>
                 <th>V1</th>
                 <th>V2</th>
+                <th>V3</th>
+                <th>V4</th>
                 <th>Causa</th>
                 <th>Heridos</th>
                 <th>Óbitos</th>
@@ -32,8 +35,11 @@
         <tr>
             <td>{{ item.id }}</td>
             <td>{{ item.fecha }}</td>
+            <td>{{ item.hora_dato }}</td>
             <td>{{ item.vehiculo1 }}</td>
             <td>{{ item.vehiculo2 }}</td>
+            <td>{{ item.vehiculo3 }}</td>
+            <td>{{ item.vehiculo4 }}</td>
             <td>{{ item.causa }}</td>
             <td>{{ item.heridos if item.heridos != None }}</td>
             <td>{{ item.obitos if item.obitos != None}}</td>
