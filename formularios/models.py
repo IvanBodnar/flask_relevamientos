@@ -4,7 +4,6 @@ import datetime
 
 class Formulario1(db.Model):
     __tablename__ = 'formulario1'
-    prueba = db.Column(db.Integer)
     id = db.Column(db.Integer, primary_key=True)
     fecha = db.Column(db.Date)
     hora_dato = db.Column(db.Time)
@@ -25,7 +24,6 @@ class Formulario1(db.Model):
 
     def __init__(self, vehiculo1, vehiculo2, vehiculo3, vehiculo4, causa, heridos, obitos, observaciones,
                  calle1, calle2, altura, lat=None, long=None, precision=None):
-        self.prueba = 1
         self.fecha = datetime.datetime.now()
         self.hora_dato = datetime.datetime.now().strftime('%H:%M')
         self.vehiculo1 = vehiculo1
