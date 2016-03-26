@@ -28,7 +28,15 @@
             <nav>
               <ul class="nav nav-pills pull-right">
                   {% if request.url.split('/')[-1] != 'index' %}
-                  <li role="presentation" class="active"><a href="{{ url_for('formularios') }}">Home</a></li>
+                  <li role="presentation" class="active">
+                      {% if session['level'] == 0 %}
+                      <a href="{{ url_for('admin') }}">Home</a>
+                      {% elif session['level'] == 10 %}
+                      <a href="{{ url_for('directivos') }}">Home</a>
+                      {% elif session['level'] == 20 %}
+                      <a href="{{ url_for('formularios') }}">Home</a>
+                      {% endif %}
+                  </li>
                   {% endif %}
                   {% if session['username'] %}
                   <li role="presentation"><a href="{{ url_for('logout') }}">Cerrar Sesion</a></li>

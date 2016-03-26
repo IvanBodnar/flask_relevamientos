@@ -32,9 +32,12 @@
     {% endif %}
     <br>
     <br>
+
+    {% if not session['username'] == 'cuc' %}
     <button id="gps-on" type="button" class="btn btn-lg btn-success center-block">Encender GPS</button>
     <br>
     <button id="gps-off" class="btn btn-lg btn-danger center-block">Apagar GPS</button>
+    {% endif %}
 
     {% from '_formhelpers.html' import render_field %}
 
@@ -47,6 +50,7 @@
         <!-- Calles list hidden variable -->
         <input type="hidden" id="calles" name="variable" value="{{ calles }}">
 
+        <!-- Coordinates retrieved from Google hidden variable -->
         <input type="hidden" id="geo-gm" name="variable" value="{{ url_for('geo_gm') }}">
 
 
@@ -71,9 +75,12 @@
         <button onclick="stopGps()" class="btn btn-lg btn-primary btn-block" type="submit">Enviar</button>
     </form>
     <hr/>
+
+    {% if not session['username'] == 'cuc' %}
     <button class="btn btn-lg btn-success btn-block form-signin" onclick="getLocation()">Usar GPS</button>
+    {% endif %}
     <hr/>
-    <button id="geo_google" class="btn btn-lg btn-warning btn-block form-signin">Usar Google</button>
+    <button id="geo_google" class="btn btn-lg btn-warning btn-block form-signin">Localizar con Google</button>
     <hr/>
     <a href="{{ url_for('formulario1') }}"><button class="btn btn-lg btn-danger btn-block form-signin">Reset</button></a>
 
