@@ -6,8 +6,8 @@ from relevamientos.app import db
 class Formulario1(db.Model):
 
     ar = pytz.timezone('America/Buenos_Aires')
-    cur_time = ar.localize(datetime.datetime.now())
-    tz_curtime = cur_time.astimezone(ar).strftime('%H:%M')
+    cur_time = pytz.utc.localize(datetime.datetime.utcnow()).astimezone(ar)
+    tz_curtime = cur_time.strftime('%H:%M')
 
     __tablename__ = 'formulario1'
     id = db.Column(db.Integer, primary_key=True)
