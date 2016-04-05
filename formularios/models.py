@@ -7,7 +7,7 @@ class Formulario1(db.Model):
 
     ar = pytz.timezone('America/Buenos_Aires')
     cur_time = pytz.utc.localize(datetime.datetime.utcnow()).astimezone(ar)
-    tz_curtime = cur_time
+    tz_curtime = cur_time.strftime('%H:%M')
 
     __tablename__ = 'formulario1'
     id = db.Column(db.Integer, primary_key=True)
@@ -32,7 +32,7 @@ class Formulario1(db.Model):
                  calle1, calle2, altura, lat=None, long=None, precision=None):
 
         self.fecha = self.ar.localize(datetime.datetime.now())
-        self.hora_dato = datetime.datetime.now().strftime('%H:%M')
+        self.hora_dato = self.tz_curtime
         self.vehiculo1 = vehiculo1
         self.vehiculo2 = vehiculo2
         self.vehiculo3 = vehiculo3
