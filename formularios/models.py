@@ -7,7 +7,7 @@ class Formulario1(db.Model):
 
     ar = pytz.timezone('America/Buenos_Aires')
     cur_time = pytz.utc.localize(datetime.datetime.utcnow()).astimezone(ar)
-    tz_curtime = cur_time.strftime('%H:%M')
+    tz_curtime = cur_time
 
     __tablename__ = 'formulario1'
     id = db.Column(db.Integer, primary_key=True)
