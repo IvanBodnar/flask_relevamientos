@@ -7,4 +7,3 @@ gunicorn
 flask-migrate
 geojson
 requests
-pytz
