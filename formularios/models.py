@@ -32,7 +32,7 @@ class Formulario1(db.Model):
                  calle1, calle2, altura, lat=None, long=None, precision=None):
 
         self.fecha = self.ar.localize(datetime.datetime.now())
-        self.hora_dato = self.tz_curtime
+        self.hora_dato = datetime.datetime.now().strftime('%H:%M')
         self.vehiculo1 = vehiculo1
         self.vehiculo2 = vehiculo2
         self.vehiculo3 = vehiculo3
