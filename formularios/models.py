@@ -5,9 +5,7 @@ from relevamientos.app import db
 
 class Formulario1(db.Model):
 
-    ar = pytz.timezone('America/Buenos_Aires')
-    cur_time = pytz.utc.localize(datetime.datetime.utcnow()).astimezone(ar)
-    tz_curtime = cur_time.strftime('%H:%M')
+
 
     __tablename__ = 'formulario1'
     id = db.Column(db.Integer, primary_key=True)
@@ -30,6 +28,10 @@ class Formulario1(db.Model):
 
     def __init__(self, vehiculo1, vehiculo2, vehiculo3, vehiculo4, causa, heridos, obitos, observaciones,
                  calle1, calle2, altura, lat=None, long=None, precision=None):
+
+        self.ar = pytz.timezone('America/Buenos_Aires')
+        self.cur_time = pytz.utc.localize(datetime.datetime.utcnow()).astimezone(self.ar)
+        self.tz_curtime = self.cur_time.strftime('%H:%M')
 
         self.fecha = self.ar.localize(datetime.datetime.now())
         self.hora_dato = self.tz_curtime
