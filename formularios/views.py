@@ -25,6 +25,7 @@ def formulario1():
 
     if form.validate_on_submit():
         siniestro = Formulario1(
+            hora_hecho=form.hora_hecho.data,
             vehiculo1=form.vehiculo1.data.lower(),
             vehiculo2=form.vehiculo2.data.lower(),
             vehiculo3=form.vehiculo3.data.lower(),

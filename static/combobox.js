@@ -2,7 +2,6 @@
 
 var list = $('#calles').val();
 
-
 //console.log(JSON.parse(list))
 
 $(function() {
@@ -18,6 +17,7 @@ $(function() {
         minLength: 3
     });
 });
+
 
 
 

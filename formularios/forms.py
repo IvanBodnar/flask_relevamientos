@@ -18,6 +18,7 @@ def validate_street_words(form, field):
 # Choices come from formularios.choices.py
 class Formulario1Form(Form):
 
+    hora_hecho = SelectField('Hora del Hecho', choices=HORA)
     vehiculo1 = SelectField('Vehículo 1', choices=VEHICULOS)
     vehiculo2 = SelectField('Vehículo 2', choices=VEHICULOS)
     vehiculo3 = SelectField('Vehículo 3', choices=VEHICULOS)

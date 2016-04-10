@@ -6,6 +6,7 @@ $(function() {
     $('#geo_google').click(function() {
 
         $('#Precision').val('0.0');
+        $(this).text('Buscando...')
         $.ajax({
             url: $('#geo-gm').val(),
             data: $('form').serialize(),
@@ -19,6 +20,8 @@ $(function() {
             error: function(error) {
                 console.log(error);
             }
+        }).then(function(value) {
+            $('#geo_google').text('Localizar con Google');
         });
     });
 });

@@ -33,7 +33,7 @@
     <br>
     <br>
 
-    {% if not session['username'] == 'cuc' %}
+    {% if not session['username'] == 'cucc' %}
     <button id="gps-on" type="button" class="btn btn-lg btn-success center-block">Encender GPS</button>
     <br>
     <button id="gps-off" class="btn btn-lg btn-danger center-block">Apagar GPS</button>
@@ -54,9 +54,9 @@
         <input type="hidden" id="geo-gm" name="variable" value="{{ url_for('geo_gm') }}">
 
 
-
         {{ form.hidden_tag() }}
 
+        {{ render_field(form.hora_hecho, id='hora_hecho', class='form-control') }}
         {{ render_field(form.vehiculo1, class='form-control') }}
         {{ render_field(form.vehiculo2, class='form-control') }}
         {{ render_field(form.vehiculo3, class='form-control') }}
@@ -76,7 +76,7 @@
     </form>
     <hr/>
 
-    {% if not session['username'] == 'cuc' %}
+    {% if not session['username'] == 'cucc' %}
     <button class="btn btn-lg btn-success btn-block form-signin" onclick="getLocation()">Usar GPS</button>
     {% endif %}
     <hr/>
