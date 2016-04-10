@@ -7,9 +7,9 @@ class Formulario1(db.Model):
 
     __tablename__ = 'formulario1'
     id = db.Column(db.Integer, primary_key=True)
-    fecha = db.Column(db.Date)
-    hora_dato = db.Column(db.Time)
-    hora_hecho = db.Column(db.Time)
+    fecha = db.Column(db.Date, nullable=True)
+    hora_dato = db.Column(db.Time, nullable=True)
+    hora_hecho = db.Column(db.Time, nullable=True)
     vehiculo1 = db.Column(db.String(20))
     vehiculo2 = db.Column(db.String(20))
     vehiculo3 = db.Column(db.String(20))

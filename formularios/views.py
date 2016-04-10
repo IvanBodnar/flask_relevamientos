@@ -24,8 +24,12 @@ def formulario1():
     CALLES = [x.nombre for x in query_calles]
 
     if form.validate_on_submit():
+        if not form.hora_hecho.data:
+            hora_h = None
+        else:
+            hora_h = form.hora_hecho.data
         siniestro = Formulario1(
-            hora_hecho=form.hora_hecho.data,
+            hora_hecho=hora_h,
             vehiculo1=form.vehiculo1.data.lower(),
             vehiculo2=form.vehiculo2.data.lower(),
             vehiculo3=form.vehiculo3.data.lower(),
